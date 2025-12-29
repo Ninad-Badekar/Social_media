@@ -1,0 +1,41 @@
+# =========================
+# Python / Django
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+*.pot
+*.sqlite3
+db.sqlite3
+.env
+.env.*
+.venv/
+venv/
+
+# Django
+staticfiles/
+media/
+local_settings.py
+
+# =========================
+# Docker
+# =========================
+*.pid
+docker-data/
+postgres_data/
+pgdata/
+redis-data/
+
+# =========================
+# Nginx
+# =========================
+nginx/logs/
+nginx/*.log
+
+
+
+
+
+
