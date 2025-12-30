@@ -36,7 +36,7 @@ DATABASES = {
     }
 }
 
-DEBUG = os.getenv("DEBUG") == "1"
+DEBUG = True
 
 ALLOWED_HOSTS = ["ninad.localhost.in", "localhost", "127.0.0.1"]
 
@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'users',
     'posts',
     'follows',
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -146,6 +147,15 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_URL = "/login/"
 LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
-LOGIN_URL = "/accounts/login/"
+LOGOUT_REDIRECT_URL = "/register/"
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Social Media API",
+    "DESCRIPTION": "Posts, Likes, Comments, Users",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+}
